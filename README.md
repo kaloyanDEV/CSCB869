@@ -1,6 +1,6 @@
 # eregistry (CSCB869)
 
-## Dependencies
+## External dependencies
 
 jdk 1.8, maven, nodejs, docker, docker-compose
 

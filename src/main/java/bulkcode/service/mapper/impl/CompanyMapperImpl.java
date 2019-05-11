@@ -7,13 +7,13 @@ import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 
 import bulkcode.domain.Company;
+import bulkcode.domain.enumeration.Activity;
+import bulkcode.domain.enumeration.Type;
 import bulkcode.service.dto.CompanyDTO;
 import bulkcode.service.mapper.CompanyMapper;
 
 /**
  * custom implementation for mapper
- * 
- * @author kaloyan
  *
  */
 public class CompanyMapperImpl implements CompanyMapper {
@@ -22,14 +22,23 @@ public class CompanyMapperImpl implements CompanyMapper {
 
 	@Override
 	public Company toEntity(CompanyDTO dto) {
-		// TODO Auto-generated method stub
-		return mapper.map(dto, Company.class);
+		
+		Company company = mapper.map(dto, Company.class);
+		company.setActivity(Activity.valueOf(dto.getActivity()));
+		company.setType(Type.valueOf(dto.getType()));
+		
+		return company;
 	}
 
 	@Override
 	public CompanyDTO toDto(Company entity) {
-		// TODO Auto-generated method stub
-		return mapper.map(entity, CompanyDTO.class);
+
+		CompanyDTO companyDto = mapper.map(entity, CompanyDTO.class);
+		companyDto.setActivity(entity.getActivity().getDesc());
+		companyDto.setType(entity.getType().getDesc());
+
+		return companyDto;
+
 	}
 
 	@Override

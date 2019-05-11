@@ -300,6 +300,15 @@
             <artifactId>metrics-core</artifactId>
         </dependency>
         <!-- jhipster-needle-maven-add-dependency -->
+        
+        <!-- Testing custom dependencies -->
+        
+        <dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>2.3.2</version>
+		</dependency>
+        
     </dependencies>
 
     <build>

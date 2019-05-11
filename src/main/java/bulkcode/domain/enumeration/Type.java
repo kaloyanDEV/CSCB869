@@ -12,7 +12,13 @@ public enum Type {
 		this.desc = desc;
 	}
 
+	@Deprecated
 	public String getDesc() {
+		return desc;
+	}
+	
+	@Override
+	public String toString() {
 		return desc;
 	}
 

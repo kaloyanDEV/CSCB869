@@ -1,5 +1,7 @@
 package bulkcode.service.mapper.impl;
 
+import java.lang.reflect.Method;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -22,20 +24,41 @@ public class CompanyMapperImpl implements CompanyMapper {
 
 	@Override
 	public Company toEntity(CompanyDTO dto) {
-		
+
 		Company company = mapper.map(dto, Company.class);
-		company.setActivity(Activity.valueOf(dto.getActivity()));
-		company.setType(Type.valueOf(dto.getType()));
-		
+		company.setActivity(fromValue(Activity.class, dto.getActivity()));
+		company.setType(fromValue(Type.class, dto.getType()));
+
 		return company;
+	}
+
+	@SuppressWarnings("unchecked")
+	private <E extends Enum<E>> E fromValue(Class<E> class1, String enumType) {
+
+		try {
+			Method method = class1.getMethod("valueOf", String.class);
+			return (E) method.invoke(null, enumType);
+		} catch (Exception e) {
+			// ignored
+		}
+
+		try {
+			Method method2 = class1.getMethod("values");
+			E[] values = (E[]) method2.invoke(null);
+			E result = Arrays.asList(values).stream().filter(type -> type.toString().equals(enumType)).findFirst().get();
+			return result;
+		} catch (Exception e) {
+			// ignored
+		}
+		return null;
 	}
 
 	@Override
 	public CompanyDTO toDto(Company entity) {
 
 		CompanyDTO companyDto = mapper.map(entity, CompanyDTO.class);
-		companyDto.setActivity(entity.getActivity().getDesc());
-		companyDto.setType(entity.getType().getDesc());
+		companyDto.setActivity(entity.getActivity().toString());
+		companyDto.setType(entity.getType().toString());
 
 		return companyDto;
 

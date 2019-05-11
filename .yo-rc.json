@@ -1,0 +1,36 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "bulkcode"
+    },
+    "jhipsterVersion": "6.0.1",
+    "applicationType": "monolith",
+    "baseName": "eregistry",
+    "packageName": "bulkcode",
+    "packageFolder": "bulkcode",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "YWFiMDY1ZDdhYWI0ODQ5ODE2N2IyNWM0MDYwNzdjYjA3Y2JlNWNkOGM0ZDVkNWU5MWE1N2VmOWNkNDdhNzA0M2FlYTlmOTM1OWE1Mjc4M2Y2NGM4NjIyMWIyMjA1ZGM5YmI0Y2E1NGZjOWYwMDFhZDgxNTJlOTlkOWI2MDg5YWY=",
+    "clientFramework": "angularX",
+    "clientTheme": "cyborg",
+    "clientThemeVariant": "light",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false
+  }
+}
